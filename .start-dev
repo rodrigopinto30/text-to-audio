@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IMAGE_NAME="tts-hf"
+CONTAINER_NAME="tts_dev"
+
+docker build -t $IMAGE_NAME .
+
+docker stop $CONTAINER_NAME 2>/dev/null
+docker rm $CONTAINER_NAME 2>/dev/null
+
+docker run --name $CONTAINER_NAME \
+  -v $(pwd)/output:/app/output \
+  -it $IMAGE_NAME "$@"

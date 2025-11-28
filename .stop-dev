@@ -1,0 +1,11 @@
+#!/bin/bash
+
+CONTAINER_NAME="tts_api_dev"
+
+echo "--- 1. Deteniendo el contenedor $CONTAINER_NAME ---"
+docker stop $CONTAINER_NAME
+
+echo "--- 2. Eliminando el contenedor $CONTAINER_NAME ---"
+docker rm $CONTAINER_NAME
+
+echo "Contenedor detenido y eliminado."
