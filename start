@@ -8,6 +8,9 @@ docker build -t $IMAGE_NAME .
 docker stop $CONTAINER_NAME 2>/dev/null
 docker rm $CONTAINER_NAME 2>/dev/null
 
-docker run --name $CONTAINER_NAME \
+echo "🚀 Iniciando sistema TTS interactivo..."
+
+docker run -it \
+  --name $CONTAINER_NAME \
   -v $(pwd)/output:/app/output \
-  -it $IMAGE_NAME "$@"
+  $IMAGE_NAME
